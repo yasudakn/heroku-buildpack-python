@@ -376,3 +376,10 @@ fi
 # Measure the size of the Python installation.
 # shellcheck disable=SC2119
 mmeasure 'python.size' "$(measure-size)"
+
+mkdir -p "$CACHE_DIR/.heroku/localsolver"
+LS_VERSION=10_5_20210624
+curl https://www.localsolver.com/downloads/${LS_VERSION}/LocalSolver_${LS_VERSION}_Linux64.run \
+  -o localsolver_${LS_VERSION}.run
+chmod u+x localsolver_${LS_VERSION}.run
+./localsolver_${LS_VERSION}.run --nointeractive --target "$CACHE_DIR/.heroku/localsolver"
