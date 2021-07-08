@@ -383,3 +383,6 @@ curl https://www.localsolver.com/downloads/${LS_VERSION}/LocalSolver_${LS_VERSIO
   -o localsolver_${LS_VERSION}.run
 chmod u+x localsolver_${LS_VERSION}.run
 ./localsolver_${LS_VERSION}.run --nointeractive --noroot --target "$CACHE_DIR/.heroku/localsolver"
+set_env PATH "\$HOME/.heroku/localsolver/bin:\$PATH"
+set_env LD_LIBRARY_PATH "\$HOME/.heroku/localsolver:\$LD_LIBRARY_PATH"
+lskeygen
